@@ -1,6 +1,7 @@
 # 🍊 Tangerine monorepo
 
-A _"fast"_ TypeScript-based Node.js setup powered by esbuild.
+A _"fast"_ TypeScript-based Node.js monorepo setup powered by esbuild.  
+Feel free to use it as a template/boilerplate for your own monorepos. 
 
 ## Features
 
