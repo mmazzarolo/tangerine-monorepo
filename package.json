@@ -1,0 +1,22 @@
+{
+  "name": "my-monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "ultra -r build",
+    "lint": "ultra -r lint",
+    "lint:fix": "ultra -r lint:fix",
+    "test": "ultra -r test",
+    "typecheck": "ultra -r typecheck",
+    "server:start": "yarn workspace @my-monorepo/server run start",
+    "server:build": "yarn workspace @my-monorepo/server run build",
+    "server:dev": "yarn workspace @my-monorepo/server run dev",
+    "is-even": "yarn workspace @my-monorepo/is-even run start",
+    "is-odd": "yarn workspace @my-monorepo/is-odd run start"
+  },
+  "dependencies": {
+    "ultra-runner": "^3.10.5"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "@my-monorepo/eslint-config",
+  "private": true,
+  "version": "0.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "@babel/eslint-parser": "7.15.4",
+    "@typescript-eslint/eslint-plugin": "^5.2.0",
+    "@typescript-eslint/parser": "^5.2.0",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.4.1"
+  }
+}

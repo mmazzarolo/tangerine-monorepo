@@ -1,0 +1,28 @@
+{
+  "name": "@my-monorepo/is-even",
+  "private": true,
+  "version": "0.0.0",
+  "types": "src/index.ts",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "esr cli/is-even.ts",
+    "typecheck": "tsc",
+    "lint": "eslint .",
+    "lint:fix": "yarn lint:fix",
+    "test": "jest",
+    "test:watch": "yarn test -- --watch"
+  },
+  "dependencies": {
+    "commander": "^8.3.0",
+    "esbuild-runner": "^2.2.1"
+  },
+  "devDependencies": {
+    "@my-monorepo/eslint-config": "*",
+    "@my-monorepo/jest-config": "*",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.11.6",
+    "eslint": "^8.1.0",
+    "jest": "^27.3.1",
+    "typescript": "^4.4.4"
+  }
+}
