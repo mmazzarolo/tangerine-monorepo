@@ -18,6 +18,20 @@ This monorepo is a boilerplate for TypeScript-based Node.js projects, powered by
 
 ## Workspaces structure
 
+Tangerine monorepo includes five workspaces:
+
+- `packages/is-even`: The simplest workspace — it doesn't depend on any other worskpace. It's a Node.js module that exposes an `isEven` function that tells if the input number is even. It includes a CLI script that invokes the function from your terminal, and a test file, both written in TypeScript. The CLI script runs using esbuild-runner, which uses esbuild to compile it on the fly.
+- `package/is-odd`: Depends on `packages/is-odd`. It's a Node.js module that exposes an `isOdd` function that tells if the input number is odd (by invoking `isEven` and checking if it's false). It includes a CLI script and a test file.
+- `package/server`: Depends on both `packages/is-odd` and `packages/is-even`. It's a Node.js Express server that exposes two routes that invoke `isEven` and `isOdd`. It uses nodemon to reload the server in development mode.
+- `packages/jest-config`: Shared Jest config that uses esbuild to compile your tests and your codebase.
+- `packages/eslint-config`: Shared ESLint config.
+
+All the workspaces use esbuild to compile the TypeScript codebase. Be it for building, testing, or running CLI scripts, the compilation is instantaneous compared to the native TypeScript compiler (you can quickly test the difference by temporarily swapping esbuild with tsc).
+
+The tsc CLI is used only to type-check the codebase (without emitting the compiled files — since they're handled by esbuild). I expect people usually use the IDE integration to type-check the code anyway and explicitly invoke the tsc CLI only in specific use cases (such as pre-commit hooks).
+
+Each workspace's package.json is pointing the `main` and `types` entry to `src/index.ts`. Which might look strange at first, given that it's uncompiled code... see ["You might not need TypeScript project references" on the Turborepo blog](https://turborepo.com/posts/you-might-not-need-typescript-project-references) for an explanation. This pattern has been working fine for my use cases so far (especially while using esbuild). Still, you might want to update these entries to suit your needs (e.g., when shipping packages to npm).
+
 ```bash
 .
 └── <project-root>/
