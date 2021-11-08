@@ -21,7 +21,7 @@ This monorepo is a boilerplate for TypeScript-based Node.js projects, powered by
 Tangerine monorepo includes five workspaces:
 
 - `packages/is-even`: The simplest workspace — it doesn't depend on any other worskpace. It's a Node.js module that exposes an `isEven` function that tells if the input number is even. It includes a CLI script that invokes the function from your terminal, and a test file, both written in TypeScript. The CLI script runs using esbuild-runner, which uses esbuild to compile it on the fly.
-- `package/is-odd`: Depends on `packages/is-odd`. It's a Node.js module that exposes an `isOdd` function that tells if the input number is odd (by invoking `isEven` and checking if it's false). It includes a CLI script and a test file.
+- `package/is-odd`: Depends on `packages/is-even`. It's a Node.js module that exposes an `isOdd` function that tells if the input number is odd (by invoking `isEven` and checking if it's false). It includes a CLI script and a test file.
 - `package/server`: Depends on both `packages/is-odd` and `packages/is-even`. It's a Node.js Express server that exposes two routes that invoke `isEven` and `isOdd`. It uses nodemon to reload the server in development mode.
 - `packages/jest-config`: Shared Jest config that uses esbuild to compile your tests and your codebase.
 - `packages/eslint-config`: Shared ESLint config.
