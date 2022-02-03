@@ -1,20 +1,22 @@
 # 🍊 Tangerine monorepo
 
-A _"fast"_ TypeScript-based Node.js monorepo setup powered by esbuild.  
-Feel free to use it as a template/boilerplate for your own monorepos.  
+A _"fast"_ TypeScript-based Node.js monorepo setup powered by esbuild & turborepo.  
+Feel free to use it as a template/boilerplate for your own monorepos.
 
-See [__Speed up your TypeScript monorepo with esbuild__](https://mmazzarolo.com/blog/2021-11-06-speed-up-your-typescript-monorepo-with-esbuild/) for more info.
+See [**Speed up your TypeScript monorepo with esbuild**](https://mmazzarolo.com/blog/2021-11-06-speed-up-your-typescript-monorepo-with-esbuild/) for more info.
+
+**Feb 3rd 2022 update: Tangerine monorepo now uses Turborepo for an even faster process 🔥**
 
 ## Features
 
-This monorepo is a boilerplate for TypeScript-based Node.js projects, powered by esbuild.
+This monorepo is a boilerplate for TypeScript-based Node.js projects, powered by esbuild & turborepo.
 
 - Uses [TypeScript](https://www.typescriptlang.org/) to write code, tests, and scripts.
 - Uses [esbuild](https://esbuild.github.io/) to compile your TypeScript codebase, tests, and scripts.
+- Uses [Turborepo](https://turborepo.org/) as a build system to run scripts from the package root.
 - Uses [tsc CLI](https://www.typescriptlang.org/docs/handbook/compiler-options.html) to type-check the codebase without emitting the compiled files (since they're handled by esbuild). No need to keep [TypeScript's Project References](https://www.typescriptlang.org/docs/handbook/project-references.html) up-to-date.
 - Uses [esbuild-runner](https://github.com/folke/esbuild-runner) to run scripts on the fly.
 - Uses [Yarn workspaces](https://yarnpkg.com/features/workspaces) to make it easy to work within the monorepo.
-- Uses [Ultra runner](https://github.com/folke/ultra-runner) to run scripts from the project root.
 - Uses a shareable [ESLint config](./packages/eslint-config) and [Jest config](./packages/jest-config) to provide an extensible linting and testing setup.
 - Uses esbuild + [nodemon](https://github.com/remy/nodemon) to reload the server in development mode (even when workspace dependencies are changed).
 
@@ -50,7 +52,7 @@ Each workspace's package.json is pointing the `main` and `types` entry to `src/i
 ### Why are you using Yarn Classic instead of Yarn 2+?
 
 Mainly because every time I use Yarn 2+ I encounter tiny issues requiring additional fixes or setup (e.g., [Editor SDKs](https://yarnpkg.com/getting-started/editor-sdks)).  
-If you prefer Yarn 2+, switching to it is as easy as running `yarn set version berry` 👍 (at that point you can even stop using ultra-runner and use `yarn workspaces foreach` instead).
+If you prefer Yarn 2+, switching to it is as easy as running `yarn set version berry` 👍.
 
 ### Why esbuild? Why not [swc](https://github.com/swc-project/swc)?
 

@@ -5,18 +5,24 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "ultra -r build",
-    "lint": "ultra -r lint",
-    "lint:fix": "ultra -r lint:fix",
-    "test": "ultra -r test",
-    "typecheck": "ultra -r typecheck",
-    "server:start": "yarn workspace @my-monorepo/server run start",
-    "server:build": "yarn workspace @my-monorepo/server run build",
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "test": "turbo run test --parallel",
+    "typecheck": "turbo run typecheck",
+    "server:build": "turbo run build --scope=*server*",
+    "server:start": "yarn server:build && yarn workspace @my-monorepo/server run start",
     "server:dev": "yarn workspace @my-monorepo/server run dev",
     "is-even": "yarn workspace @my-monorepo/is-even run start",
     "is-odd": "yarn workspace @my-monorepo/is-odd run start"
   },
   "dependencies": {
-    "ultra-runner": "^3.10.5"
-  }
+    "turbo": "latest"
+  },
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=14.0.0"
+  },
+  "packageManager": "yarn@1.22.17"
 }
