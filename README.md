@@ -5,7 +5,7 @@ Feel free to use it as a template/boilerplate for your own monorepos.
 
 See [**Speed up your TypeScript monorepo with esbuild**](https://mmazzarolo.com/blog/2021-11-06-speed-up-your-typescript-monorepo-with-esbuild/) for more info.
 
-**Feb 3rd 2022 update: Tangerine monorepo now uses Turborepo for an even faster process 🔥**
+**Feb 3rd 2022 update: Tangerine monorepo now uses Turborepo for an even faster developer experience 🔥**
 
 ## Features
 
