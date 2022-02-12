@@ -1,3 +1,3 @@
 module.exports = {
-  ...require("../jest-config"),
+  ...require("@my-monorepo/jest-config"),
 };
