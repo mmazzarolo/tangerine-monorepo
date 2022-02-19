@@ -58,6 +58,13 @@ If you prefer Yarn 2+, switching to it is as easy as running `yarn set version b
 
 I love [swc](https://github.com/swc-project/swc), but I feel esbuild is still more "mature". I've also noticed that in some cases swc doesn't respect TypeScript's `compilerOptions`'s `paths`.
 
+### Why Turborepo?
+
+Turborepo is specifically built to support monorepos such as this one.  
+To me, the major benefits of Turborepo are an fast developer experience (mostly because of caching) and its configurability.
+
 ### Why are you pointing the package.json's `main` and `types` entry to uncompiled code?
 
 See ["You might not need TypeScript project references" on the Turborepo blog](https://turborepo.com/posts/you-might-not-need-typescript-project-references). This pattern has been working fine for my use cases so far (especially while using esbuild). Still, you might want to update these entries to suit your needs.
+
+
