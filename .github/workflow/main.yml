@@ -1,0 +1,33 @@
+# Reusable workflow for releases; to eject, you can replace this file with
+# https://github.com/ryansonshine/ryansonshine/blob/main/.github/workflows/release.yml
+name: Release
+on: ["push", "pull_request"]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Node 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install dependencies
+        run: yarn
+      - name: Run tests
+        run: npx turbo run test
+      - name: Subproject Is Even
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ github.token }}
+          flag-name: is-even
+      - name: Subproject Is Odd
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.COVERALLS_REPO_TOKEN }}
+          flag-name: is-odd
+      - name: Subproject Server
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          flag-name: server

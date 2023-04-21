@@ -13,7 +13,7 @@
     "typecheck": "tsc",
     "lint": "eslint .",
     "lint:fix": "yarn lint:fix",
-    "test": "jest --passWithNoTests",
+    "test": "jest --passWithNoTests --coverage",
     "test:watch": "yarn test -- --watch"
   },
   "dependencies": {
